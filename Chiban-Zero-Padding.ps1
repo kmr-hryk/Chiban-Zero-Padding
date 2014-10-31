@@ -10,8 +10,6 @@ function Zero-Padding() {
 }
 
 $chiban = [String]$ARGS[0] -Split("-")
-$oya = [String]""
-$eda = [String]""
 
 $oya = Zero-Padding $chiban[0] 4
 if ( $chiban.Length -eq 2 ) {
