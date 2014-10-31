@@ -14,9 +14,9 @@ Ex. 100-1 → 0100-001
 
 PowerShellスクリプトです。セキュリティ設定で署名無しのスクリプトを実行可能なように設定をしておいてください。
 
-適当なディレクトリにChian-Zero-Padding.ps1を置き、ファイル名を変更したいディレクトリに移動後、Chian-Zero-Padding.ps1を実行してください。
+適当なディレクトリにChian-Zero-Padding.ps1を置き、Chian-Zero-Padding.ps1を実行してください。
 
-```
+```ps1
 PS> Chk-ScaleChian-Zero-Padding.ps1 100-1
 ```
 
@@ -25,6 +25,14 @@ PS> Chk-ScaleChian-Zero-Padding.ps1 100-1
 ```
 0100-001
 ```
+
+このスクリプトを使ってPDFファイル名を変更する場合には下記のようにします。
+
+```ps1
+PS> $ex = ".pdf" ; Get-ChildItem "*$ex" -Name | ForEach-Object { $tmp = (%Path-To-Script%\Chiban-Zero-Padding.ps1 $_.Replace($ex,"")) ; Rename-Item $_ $tmp$ex }
+```
+
+ワンライナーだとわかりにくいですね。
 
 ## 注意
 
